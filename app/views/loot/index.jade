@@ -1,0 +1,15 @@
+extends ../layouts/home
+
+block content
+  h1 Complete Loot Table
+
+  table
+    thead
+      tr 
+        th Name
+        th Description
+    tbody
+      - each loot in loots
+        tr
+          td: a(href="/loot/#{loot.id}")= loot.name
+          td= loot.description

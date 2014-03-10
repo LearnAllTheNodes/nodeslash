@@ -1,0 +1,6 @@
+extends ../layouts/home
+
+block content
+  h1 #{bossify('Are ye bravez')}, #{user.username}
+  form(action='/adventures',method='POST')
+    button(type='submit') Yes I am bravez

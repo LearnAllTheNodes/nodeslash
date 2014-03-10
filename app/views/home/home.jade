@@ -1,0 +1,14 @@
+extends ../layouts/home
+
+block content
+  h1 Web's Premiere Browser Game
+
+  h2 Message from Borgoroth
+  p
+    :markdown
+      This is **markdowneth**, *intrepid* hero! Go fight a
+      = beasts[0].name
+
+  p
+    img(src="/images/sword_and_shield.png")
+  a(href="/adventures", data-foo='bar') Go to adventures

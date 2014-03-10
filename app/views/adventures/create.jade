@@ -1,0 +1,11 @@
+extends ../layouts/home
+
+block content
+  h1 Thou hast bravez.
+  form(action='/adventures/42',method='POST')
+    input(type='hidden',name='_method' value='put')
+    button(type='submit') Cheat!
+  form(action='adventures',method='POST')
+    button(type='submit') Again!
+  p You have found some 
+    a(href='/loot/1') loot.
