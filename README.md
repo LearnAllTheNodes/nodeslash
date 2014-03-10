@@ -47,4 +47,4 @@ With the Makefile that we set up, use `make test` to run all of the tests.
 
 ### Previous episodes' code
 
-From Episode 17 on, all the NodeSlash code will be in 1 repo with a different branch for each episode.  To get the code for a particular episode, use the branchs navigation above.
+From Episode 17 on, all the NodeSlash code will be in 1 repo with a different tag for each episode.  To get the code for a particular episode, use the tags navigation above.
