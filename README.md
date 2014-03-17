@@ -2,7 +2,7 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/18-less-is-moar)
+* [Watch:](http://www.learnallthenodes.com/episodes/18-less-is-moar) Less is Moar
 
 When I show up at a homepage like how NodeSlash's currently is, I know I'm just itching to whip out my payment card and send that company some money.  Everything about it screams professionalism and increases my trust factor.
 
