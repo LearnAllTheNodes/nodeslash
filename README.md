@@ -2,48 +2,62 @@
 
 ## Current Episode
 
-* Watch: [17-testing-route-handlers-revisited](http://www.learnallthenodes.com/episodes/17-testing-route-handlers-revisited)
+* [Watch:](http://www.learnallthenodes.com/episodes/18-less-is-moar)
 
-When we tested route handlers last week, we tested them in isolation.  That's a useful way to test, but sometimes we also want to test exactly how a browser would.  That means we need to simulate sending HTTP requests to our application rather than just running some functions.
+When I show up at a homepage like how NodeSlash's currently is, I know I'm just itching to whip out my payment card and send that company some money.  Everything about it screams professionalism and increases my trust factor.
 
-We do this with the Node module `supertest` which is built in part on `superagent`.  Testing in this way will run our tests through our routing and middleware stacks, giving us test coverage that our strategy from last week did not.
+Oh wait.  No, that's the exact opposite this homepage screams.  We need to clean this up so that NodeSlash doesn't look like a complete wasteland, or worse, a warez site.
+
+Enter Less.  Less is what we call a CSS pre-processor.  Browsers for right now only understand CSS, yet writing raw CSS I think is a real pain sometimes.  Especially as a developer.  Let's have a look at some of the problems that Less solves.
 
 ### Notes
 
-[supertest](https://github.com/visionmedia/supertest)
+[Less homepage](http://lesscss.org/)
 
-[superagent](https://github.com/visionmedia/superagent)
+[less-middleware](https://github.com/emberfeather/less.js-middleware)
 
-[Mocha reporters](http://visionmedia.github.io/mocha/#reporters)
+[less npm module](https://www.npmjs.org/package/less)
 
-    // An example supertest test
-    it("should create a new user when we pass valid data", function(done) {
-      supertest(App.app)
-        .post('/sign_up')
-        .send({email:'noexisty@example.com', password:'override'})
-        .expect(200)
-        .end(function(err,res) {
-          if (err) {
-            console.log('error:',err)
-            console.log(res.body)
-            assert.ifError(err)
-          } else {
-            User.find({email:'noexisty@example.com'}, function(err,users) {
-              assert.ifError(err)
-
-              assert(users[0])
-              assert.equal(users[0].email, 'noexisty@example.com')
-              done()
-            })
+    // Configure less
+    var lessMiddleware = require('less-middleware')
+      , lessMiddlewareOptions = {
+          dest: App.appPath('/public')
+        , relativeUrls: true
+        , force: App.env === 'development'
+        , once: App.env !== 'development'
+        , debug: App.env === 'development'
+        , preprocess: {
+            path: function(pathname,req) {
+              console.log(pathname)
+              return pathname.replace('/stylesheets', '')
+            }
           }
-        })
-    })
+        }
+      , lessParserOptions = {
+          dumpLineNumbers: 'mediaquery'
+        }
+      , lessCompilerOptions = {
+          compress: App.env !== 'development'
+        }
+    
+    App.app.use(lessMiddleware(
+      App.appPath('app/stylesheets')
+    , lessMiddlewareOptions
+    , lessParserOptions
+    , lessCompilerOptions
+    ))
 
-[Episode code](https://github.com/LearnAllTheNodes/NodeSlash)
-
-[Highway 40 Revisited](http://www.youtube.com/watch?v=RDhpC3vl8Og)
-
-With the Makefile that we set up, use `make test` to run all of the tests.
+    // example of nesting styles and a variable
+    @administrator-text-color: #00B4FF;
+    
+    .system_message {
+      background-color: #EEE;
+      padding: 15px;
+    
+      p {
+        color: @administrator-text-color;
+      }
+    }
 
 ### Previous episodes' code
 

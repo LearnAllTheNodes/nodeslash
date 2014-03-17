@@ -41,6 +41,35 @@ App.app.set('view engine', 'jade');
 App.app.set('view options', { pretty: env === 'development' });
 App.app.locals({bossify:App.util('bossify'), pretty:true})
 
+// Configure less
+var lessMiddleware = require('less-middleware')
+  , lessMiddlewareOptions = {
+      dest: App.appPath('/public')
+    , relativeUrls: true
+    , force: App.env === 'development'
+    , once: App.env !== 'development'
+    , debug: App.env === 'development'
+    , preprocess: {
+        path: function(pathname,req) {
+          console.log(pathname)
+          return pathname.replace('/stylesheets', '')
+        }
+      }
+    }
+  , lessParserOptions = {
+      dumpLineNumbers: 'mediaquery'
+    }
+  , lessCompilerOptions = {
+      compress: App.env !== 'development'
+    }
+
+App.app.use(lessMiddleware(
+  App.appPath('app/stylesheets')
+, lessMiddlewareOptions
+, lessParserOptions
+, lessCompilerOptions
+))
+
 // Middlewarez
 App.app.use(express.bodyParser())
 App.app.use(express.methodOverride())

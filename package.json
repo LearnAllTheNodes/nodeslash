@@ -18,7 +18,8 @@
     "mongoose": "~3.8.4",
     "mongoose-validate": "latest",
     "bcrypt": "~0.7.7",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "less-middleware": "^0.2.1-beta"
   },
   "engines": {
     "node": "0.10.x",
