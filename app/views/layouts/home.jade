@@ -2,10 +2,12 @@ doctype html
 html
   head
     title= title
-    link(type="text/css",rel="stylesheet",href="/stylesheets/dummy.css")
+    link(type="text/css",rel="stylesheet",href="/stylesheets/application.css")
   body
     include navBar
-    block content
+    .container
+      block content
 
     block extraJs
       script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js").
+      script(src="/js/bootstrap.min.js")

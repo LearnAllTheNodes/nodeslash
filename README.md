@@ -2,62 +2,39 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/18-less-is-moar) Less is Moar
+* [Watch:](http://www.learnallthenodes.com/episodes/19-bootstrap-and-node) Bootstrap and Node
 
-When I show up at a homepage like how NodeSlash's currently is, I know I'm just itching to whip out my payment card and send that company some money.  Everything about it screams professionalism and increases my trust factor.
-
-Oh wait.  No, that's the exact opposite this homepage screams.  We need to clean this up so that NodeSlash doesn't look like a complete wasteland, or worse, a warez site.
-
-Enter Less.  Less is what we call a CSS pre-processor.  Browsers for right now only understand CSS, yet writing raw CSS I think is a real pain sometimes.  Especially as a developer.  Let's have a look at some of the problems that Less solves.
+Well, last, wee... episode, I mean, we integrated Less with NodeSlash, which we used to awesomely display a message in administrator blue.  That was a fun start, but this time we're going to kick it into high gear by integrating with Twitter Bootstrap.
 
 ### Notes
 
-[Less homepage](http://lesscss.org/)
+[Twitter Bootstrap](http://getbootstrap.com/)
 
-[less-middleware](https://github.com/emberfeather/less.js-middleware)
+#### Direct links to the bundles used in the episode (but it is highly recommended to actually go to the Bootstrap site so you get the latest versions!)
+* [Bootstrap distribution (as of 8 April 2014)](https://github.com/twbs/bootstrap/releases/download/v3.1.1/bootstrap-3.1.1-dist.zip)
+* [Bootstrap source (as of 8 April 2014)](https://github.com/twbs/bootstrap/archive/v3.1.1.zip)
 
-[less npm module](https://www.npmjs.org/package/less)
+    // Our navbar
+    nav.navbar.navbar-default(role="navigation")
+      .navbar-header
+        button.navbar-toggle(type="button",data-toggle="collapse",data-target="#main_site_nav")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href="/")
+          | NodeSlash
 
-    // Configure less
-    var lessMiddleware = require('less-middleware')
-      , lessMiddlewareOptions = {
-          dest: App.appPath('/public')
-        , relativeUrls: true
-        , force: App.env === 'development'
-        , once: App.env !== 'development'
-        , debug: App.env === 'development'
-        , preprocess: {
-            path: function(pathname,req) {
-              console.log(pathname)
-              return pathname.replace('/stylesheets', '')
-            }
-          }
-        }
-      , lessParserOptions = {
-          dumpLineNumbers: 'mediaquery'
-        }
-      , lessCompilerOptions = {
-          compress: App.env !== 'development'
-        }
-    
-    App.app.use(lessMiddleware(
-      App.appPath('app/stylesheets')
-    , lessMiddlewareOptions
-    , lessParserOptions
-    , lessCompilerOptions
-    ))
+     .collapse.navbar-collapse#main_site_nav
+       ul.nav.navbar-nav
+         li
+           a(href="/about") About
+         li
+           a(href="/sign_in") Sign in
+         li
+           a(href="/sign_up") Sign up
 
-    // example of nesting styles and a variable
-    @administrator-text-color: #00B4FF;
-    
-    .system_message {
-      background-color: #EEE;
-      padding: 15px;
-    
-      p {
-        color: @administrator-text-color;
-      }
-    }
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash)
 
 ### Previous episodes' code
 
