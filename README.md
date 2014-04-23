@@ -2,37 +2,23 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/19-bootstrap-and-node) Bootstrap and Node
+* [Watch:](http://www.learnallthenodes.com/episodes/20-password-authentication-in-node-with-passport-(the-overview)) Password Authentication in Node with Passport (the Overview)
 
-Well, last, wee... episode, I mean, we integrated Less with NodeSlash, which we used to awesomely display a message in administrator blue.  That was a fun start, but this time we're going to kick it into high gear by integrating with Twitter Bootstrap.
+We've actually created a sign in page.  You may not remember it, because it's been a few episodes since we did that.  And if we define "work" as we can submit a username and password and check against them, then yes, it definitely does "work".
+
+But we need more than this.  We're going to have pages that we want to protect.  We want to restrict access to authenticated users.  We want that user authentication to last for more than a single page.  We want our rag-tag adventurers to actually be able to *log in* and not just validate their username and password.
+
+That is exactly this episode's topic, and we solve this with a node package called passport.
 
 ### Notes
 
-[Twitter Bootstrap](http://getbootstrap.com/)
+[Passport](http://passportjs.org/)
 
-#### Direct links to the bundles used in the episode (but it is highly recommended to actually go to the Bootstrap site so you get the latest versions!)
-* [Bootstrap distribution (as of 8 April 2014)](https://github.com/twbs/bootstrap/releases/download/v3.1.1/bootstrap-3.1.1-dist.zip)
-* [Bootstrap source (as of 8 April 2014)](https://github.com/twbs/bootstrap/archive/v3.1.1.zip)
+[Passport repo](https://github.com/jaredhanson/passport)
 
-    // Our navbar
-    nav.navbar.navbar-default(role="navigation")
-      .navbar-header
-        button.navbar-toggle(type="button",data-toggle="collapse",data-target="#main_site_nav")
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand(href="/")
-          | NodeSlash
+[Passport strategies](https://github.com/jaredhanson/passport#strategies-1)
 
-     .collapse.navbar-collapse#main_site_nav
-       ul.nav.navbar-nav
-         li
-           a(href="/about") About
-         li
-           a(href="/sign_in") Sign in
-         li
-           a(href="/sign_up") Sign up
+[Devise](https://github.com/plataformatec/devise)
 
 [Episode code](https://github.com/LearnAllTheNodes/nodeslash)
 
