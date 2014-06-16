@@ -2,25 +2,71 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/20-password-authentication-in-node-with-passport-(the-overview)) Password Authentication in Node with Passport (the Overview)
+* [Watch:](http://www.learnallthenodes.com/episodes/21-password-authentication-in-node-with-passport) Password Authentication in Node with Passport
 
-We've actually created a sign in page.  You may not remember it, because it's been a few episodes since we did that.  And if we define "work" as we can submit a username and password and check against them, then yes, it definitely does "work".
+Last time we did the overview of Passport.  We installed it into NodeSlash and talked about how the various pieces fit together.  
 
-But we need more than this.  We're going to have pages that we want to protect.  We want to restrict access to authenticated users.  We want that user authentication to last for more than a single page.  We want our rag-tag adventurers to actually be able to *log in* and not just validate their username and password.
+That may not yet have helped you with your project.  You didn't really learn how to set up and *use* Passport.  You didn't end last week with code allowing you to log your users in.
 
-That is exactly this episode's topic, and we solve this with a node package called passport.
+This week is different.  Today we actually write the code that will let us log our users in and out.
 
 ### Notes
 
 [Passport](http://passportjs.org/)
 
-[Passport repo](https://github.com/jaredhanson/passport)
+[The command pattern](http://en.wikipedia.org/wiki/Command_pattern)
 
-[Passport strategies](https://github.com/jaredhanson/passport#strategies-1)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00021)
 
-[Devise](https://github.com/plataformatec/devise)
+    // Initializing passport
+    function init() {
+      var passport = require('passport')
+         , LocalStrategy = require('passport-local').Strategy
+         , usernameAndPasswordStrategy = new LocalStrategy(
+            {usernameField: 'email', passwordField: 'password'}
+          , App.model('user').findByEmailAndPassword
+          )
+        , serializeUser = App.command('serializeUser')()
+        , deserializeUser = App.command('deserializeUser')()
+  
+        passport.use(usernameAndPasswordStrategy)
+        passport.serializeUser(serializeUser)
+        passport.deserializeUser(deserializeUser)
+  
+        App.app.use(passport.initialize())
+        App.app.use(passport.session())
+    }
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash)
+    module.exports = init
+
+    // calling our passport initialization
+    App.require('config/initializers/passport.js')()
+
+    // serializing the user
+    function serializeUser() {
+      return function _serializeUser(user,cb) {
+        cb(null, {'type': 'user', 'id': user.id})
+      }
+    }
+
+    module.exports = serializeUser
+
+    //deserializing the user
+    var User = App.model('user')
+
+    // For deserializing a user from session storage
+    function deserializeUser() {
+      return function _deserializeUser(obj,cb) {
+        User.findOne({_id: obj.id}, function(err,user) {
+          cb(err,user)
+        })
+      }
+    }
+    
+    module.exports = deserializeUser
+
+    // Using passport in our routes
+    app.post('/sign_in', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/sign_in', failureFlash: 'Invalid username or password' }))
 
 ### Previous episodes' code
 
