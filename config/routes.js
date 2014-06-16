@@ -1,3 +1,5 @@
+var passport = require('passport')
+
 module.exports = function(app) {
   var homeRoutes = App.route('homeRoutes')
   app.get("/",               homeRoutes.home)
@@ -20,5 +22,6 @@ module.exports = function(app) {
 
   var sessionRoutes = App.route('sessionsRoutes')
   app.get('/sign_in',  sessionRoutes.new)
-  app.post('/sign_in', sessionRoutes.create)
+  app.post('/sign_in', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/sign_in', failureFlash: 'Invalid username or password' }))
+  app.get('/sign_out', sessionRoutes.destroy)
 }

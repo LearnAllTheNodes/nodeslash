@@ -27,7 +27,7 @@ schema.pre('save', function(next) {
 })
 
 schema.statics.findByEmailAndPassword = function findByEmailAndPassword(email,password,cb) {
-  this.findOne({email:email}, function(err,user) {
+  Model.findOne({email:email}, function(err,user) {
     if (err)   return cb(err)
     if (!user) return cb()
 

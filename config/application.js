@@ -24,6 +24,9 @@ global.App = {
       console.log("Running App Version " + App.version + " on port " + App.port + " in " + App.env + " mode")
     }
   }
+, command: function(path) {
+    return this.require("app/commands/" + path)
+  }
 , model: function(path) {
     return this.require("app/models/" + path)
   }
@@ -75,6 +78,7 @@ App.app.use(express.bodyParser())
 App.app.use(express.methodOverride())
 App.app.use(express.cookieParser())
 App.app.use(express.cookieSession({secret: "it'sasecrettoeverybody", key: "session"}))
+App.require('config/initializers/passport.js')()
 App.app.use(App.app.router)
 App.app.use(express.static(App.appPath('public')))
 
