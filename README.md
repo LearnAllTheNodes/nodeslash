@@ -2,7 +2,7 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/21-password-authentication-in-node-with-passport) Password Authentication in Node with Passport
+* [Watch:](http://www.learnallthenodes.com/episodes/22-connect-flash) connect-flash
 
 When you're writing a web app, often times your users are going to do things in the app for which you would like to display little notifications.  These need to be independent of which page they're on, and they don't show up with every page load.
 
