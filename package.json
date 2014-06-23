@@ -21,7 +21,8 @@
     "async": "~0.2.10",
     "less-middleware": "^0.2.1-beta",
     "passport-local": "^1.0.0",
-    "passport": "^0.2.0"
+    "passport": "^0.2.0",
+    "connect-flash": "^0.1.1"
   },
   "engines": {
     "node": "0.10.x",

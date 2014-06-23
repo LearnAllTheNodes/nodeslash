@@ -4,69 +4,44 @@
 
 * [Watch:](http://www.learnallthenodes.com/episodes/21-password-authentication-in-node-with-passport) Password Authentication in Node with Passport
 
-Last time we did the overview of Passport.  We installed it into NodeSlash and talked about how the various pieces fit together.  
+When you're writing a web app, often times your users are going to do things in the app for which you would like to display little notifications.  These need to be independent of which page they're on, and they don't show up with every page load.
 
-That may not yet have helped you with your project.  You didn't really learn how to set up and *use* Passport.  You didn't end last week with code allowing you to log your users in.
-
-This week is different.  Today we actually write the code that will let us log our users in and out.
+These messages are sometimes referred to as flash messages, are no way related to the successful Adobe product, and are the topic of this week's episode.
 
 ### Notes
 
-[Passport](http://passportjs.org/)
+[connect-flash](https://github.com/jaredhanson/connect-flash)
 
-[The command pattern](http://en.wikipedia.org/wiki/Command_pattern)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00022)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00021)
+    // config/application.js
+    // connecting the middlware (AFTER the session middlewares
+    App.app.use(require('connect-flash')())  // gives access to the flash
+    App.app.use(App.middleware('setFlash'))  // makes it available to our views
 
-    // Initializing passport
-    function init() {
-      var passport = require('passport')
-         , LocalStrategy = require('passport-local').Strategy
-         , usernameAndPasswordStrategy = new LocalStrategy(
-            {usernameField: 'email', passwordField: 'password'}
-          , App.model('user').findByEmailAndPassword
-          )
-        , serializeUser = App.command('serializeUser')()
-        , deserializeUser = App.command('deserializeUser')()
-  
-        passport.use(usernameAndPasswordStrategy)
-        passport.serializeUser(serializeUser)
-        passport.deserializeUser(deserializeUser)
-  
-        App.app.use(passport.initialize())
-        App.app.use(passport.session())
-    }
-
-    module.exports = init
-
-    // calling our passport initialization
-    App.require('config/initializers/passport.js')()
-
-    // serializing the user
-    function serializeUser() {
-      return function _serializeUser(user,cb) {
-        cb(null, {'type': 'user', 'id': user.id})
+    // app/middlewares/setFlash.js
+    function setFlash(req,res,next) {
+      res.locals.flash = {
+        notice: req.flash('notice')
+      , error: req.flash('error')
       }
-    }
-
-    module.exports = serializeUser
-
-    //deserializing the user
-    var User = App.model('user')
-
-    // For deserializing a user from session storage
-    function deserializeUser() {
-      return function _deserializeUser(obj,cb) {
-        User.findOne({_id: obj.id}, function(err,user) {
-          cb(err,user)
-        })
-      }
-    }
     
-    module.exports = deserializeUser
+      next()
+    }
 
-    // Using passport in our routes
-    app.post('/sign_in', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/sign_in', failureFlash: 'Invalid username or password' }))
+    module.exports = setFlash
+
+    // app/views/layouts/flash.jade
+    - if (flash && flash.notice && flash.notice.length > 0)
+      p.alert.alert-success= flash.notice
+    - if (flash && flash.error && flash.error.length > 0)
+      p.alert.alert-danger= flash.error
+
+    // app/views/layouts/home.jade
+    .container
+      include flash // making sure the flashes show up on our pages
+      block content
+
 
 ### Previous episodes' code
 

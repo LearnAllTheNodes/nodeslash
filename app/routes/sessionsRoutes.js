@@ -17,7 +17,7 @@ function create(req,res) {
 
 function destroy(req,res) {
   req.logout()
-  //req.flash('notice', 'You have successfully signed out.')
+  req.flash('notice', 'You have successfully signed out.')
   res.redirect('/')
 }
 

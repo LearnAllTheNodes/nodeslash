@@ -27,6 +27,9 @@ global.App = {
 , command: function(path) {
     return this.require("app/commands/" + path)
   }
+, middleware: function(path) {
+    return this.require("app/middlewares/" + path)
+  }
 , model: function(path) {
     return this.require("app/models/" + path)
   }
@@ -79,6 +82,8 @@ App.app.use(express.methodOverride())
 App.app.use(express.cookieParser())
 App.app.use(express.cookieSession({secret: "it'sasecrettoeverybody", key: "session"}))
 App.require('config/initializers/passport.js')()
+App.app.use(require('connect-flash')())
+App.app.use(App.middleware('setFlash'))
 App.app.use(App.app.router)
 App.app.use(express.static(App.appPath('public')))
 
