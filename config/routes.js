@@ -4,11 +4,6 @@ module.exports = function(app) {
   var homeRoutes = App.route('homeRoutes')
   app.get("/",               homeRoutes.home)
 
-  var adventuresRoutes = App.route('adventuresRoutes')
-  app.get("/adventures",     adventuresRoutes.index)
-  app.post("/adventures",    adventuresRoutes.create)
-  app.put("/adventures/:id", adventuresRoutes.update)
-
   var bestiaryRoutes = App.route('bestiaryRoutes')
   app.get('/bestiary', bestiaryRoutes.index)
 
@@ -24,4 +19,13 @@ module.exports = function(app) {
   app.get('/sign_in',  sessionRoutes.new)
   app.post('/sign_in', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/sign_in', failureFlash: 'Invalid username or password' }))
   app.get('/sign_out', sessionRoutes.destroy)
+
+  // REQUIRES AUTHENTICATION
+  app.all('/app/*', App.middleware('ensureAuthenticated'))
+
+  var adventuresRoutes = App.route('adventuresRoutes')
+  app.get("/app/adventures",     adventuresRoutes.index)
+  app.post("/app/adventures",    adventuresRoutes.create)
+  app.put("/app/adventures/:id", adventuresRoutes.update)
+
 }
