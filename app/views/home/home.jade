@@ -1,17 +1,57 @@
 extends ../layouts/home
 
 block content
-  h1 Web's Premiere Browser Game
+  .jumbotron.home__jumbotron
+    .container.home__jumbotron__hero
+      h1.home__jumbtotron__headline What tales will the bards sing of ye?
+      p.home__jumbtron__copy Canst ye save the kingdom?
+      p.home__jumbtron__copy Hast ye the courage?
+      p.home__jumbtron__copy 
+        em Wilt ye muster the steel and epic? 
 
-  .system_message
-    h2 Message from Borgoroth
-    p
-      :markdown
-        This is **markdowneth**, *intrepid* hero! Go fight a
-        = beasts[0].name
-
-   p Canst ye save the kingdom?
-
-  p
-    img(src="/images/sword_and_shield.png")
-  a(href="/app/adventures", data-foo='bar') Go to adventures
+  .home__feature
+    h3 Destiny awaiteth.
+      button.btn.btn-primary 
+        .fa.fa-road
+        | Answer the call
+  
+  .container
+    .row
+      .col-md-6.home_column
+        h2.home_column__header 
+          | Carve out your place in legend with 
+          em.home_column__header__em  more than 0 character classes 
+          | to choose from
+        p
+          img(src="/images/sword_and_shield.png")
+      .col-md-offset-1.col-md-4.home_column
+        .row
+          .col-xs-12
+            .panel.panel-info
+              .panel-heading 
+                .fa.fa-flag
+                | Adventure
+              .panel-body
+                p Evil riseth.  The call for champions haseth been proclaimed.  
+                p 
+                  em Wilst ye answer the call? Or wilst ye aid the evil?
+        .row
+          .col-xs-12
+            .panel.panel-info
+              .panel-heading
+                .fa.fa-bullhorn
+                | Fame
+              .panel-body
+                p Newst legends arst being composed by the story tellers.
+                p 
+                  em How will yourst name be remembered in the ages to come?
+        .row
+          .col-xs-12
+            .panel.panel-success
+              .panel-heading
+                .fa.fa-trophy
+                | Loot
+              .panel-body
+                p The treasures of Mayll, hidden for ages, begin to come forth.
+                p
+                  em Which of them shalst be yours?

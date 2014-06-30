@@ -2,72 +2,43 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/23-authorization-with-passport-part-1-ensuring-theyre-logged-in)
+* [Watch:](http://www.learnallthenodes.com/episodes/24-style-tricks-for-the-design-impaired)
 
-When you're writing a web app, often times your users are going to do things in the app for which you would like to display little notifications.  These need to be independent of which page they're on, and they don't show up with every page load.
+Do you develop great backend systems but find that making a website look nice is a Dark Art?  Do you ever wish there were some easy fixes for that problem?  That totally describes me.
 
-These messages are sometimes referred to as flash messages, are no way related to the successful Adobe product, and are the topic of this week's episode.
+Unfortunately, there's no way to make design easy or mechanical.  But there are few tricks you can drop in to spruce up your struggling pages.  We've already seen how Bootstrap can do wonders for us, but it doesn't stop there.  In this week's episode we look at a few more tricks savvy developers can use to fake the appearance of design skills or that experienced design folks can use to save some initial setup.
 
 ### Notes
 
-[Opening clipart](http://openclipart.org/detail/8935/police-man-by-gerald_g-8935)
+[Opening image](http://openclipart.org/detail/81337/interaction-designers-by-mairin)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00023)
+[Bootstrap CDN](http://www.bootstrapcdn.com/)
 
-    // app/middlewares/ensureAuthenticated.js
-    function ensureAuthenticated(req,res,next) {
-      if (req.isAuthenticated()) {
-        next()
-      } else {
-        req.flash('error', 'You must be logged in to do that.')
-        res.redirect('/sign_in')
-      }
-    }
+[Justin Dorfman](https://twitter.com/jdorfman)
 
-    module.exports = ensureAuthenticated
+[Joshua Mervine](https://twitter.com/mervinej)
 
-    // In config/routes.js, now at the end
-    // REQUIRES AUTHENTICATION
-    app.all('/app/*', App.middleware('ensureAuthenticated'))
+[Bootswatch](http://bootswatch.com/)
 
-    var adventuresRoutes = App.route('adventuresRoutes')
-    app.get("/app/adventures",     adventuresRoutes.index)
-    app.post("/app/adventures",    adventuresRoutes.create)
-    app.put("/app/adventures/:id", adventuresRoutes.update)
+[Wrap Bootstrap](https://wrapbootstrap.com/)
 
-    // app/middlewares/attachAuthenticationStatus.js
-    // This middleware makes the login status of the users available
-    // to our views.
-    function attachAuthenticationStatus(req,res,next) {
-      res.locals.isAuthenticated = req.isAuthenticated()
-      next()
-    }
+[Font Awesome website](http://fortawesome.github.io/Font-Awesome/)
+
+[Kuler](kuler.adobe.com)
+
+    // Using Bootstrap CDN for our theme
+    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet")
     
-    module.exports = attachAuthenticationStatus
-
-    // In config/application.js    
-    // Middlewarez
-    App.app.use(express.bodyParser())
-    App.app.use(express.methodOverride())
-    App.app.use(express.cookieParser())
-    App.app.use(express.cookieSession({secret: "it'sasecrettoeverybody", key: "session"}))
-    App.require('config/initializers/passport.js')()
-    App.app.use(App.middleware('attachAuthenticationStatus'))  // LOOK AT ME!
-    App.app.use(require('connect-flash')())
-    App.app.use(App.middleware('setFlash'))
-    App.app.use(App.app.router)
-    App.app.use(express.static(App.appPath('public')))
-
-
-    // In app/views/layouts/navBar.jade
-      - if (!isAuthenticated)
-        li
-          a(href="/sign_in") Sign in
-        li
-          a(href="/sign_up") Sign up
-      - else
-        li
-          a(href="/sign_out") Sign out
+    
+    // Font-awesome
+    
+    // The stylesheet 
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
+    
+    // Actually using one
+    button.btn.btn-primary
+      .fa.fa-road
+      | Answer the call
 
 ### Previous episodes' code
 

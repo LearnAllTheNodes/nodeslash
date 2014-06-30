@@ -2,13 +2,30 @@ doctype html
 html
   head
     title= title
+    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet")
     link(type="text/css",rel="stylesheet",href="/stylesheets/application.css")
-  body
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
+  body.home
     include navBar
-    .container
-      include flash
+    include flash
+
+    .main
       block content
 
+    footer
+      .row
+        .col-sm-4.col-sm-offset-2.footer__col
+          p NodeSlash is &copy;2014 Such Software, LLC
+          p We do not recommend using NodeSlash to learn English, old or modern.
+          p 
+            | NodeSlash is the running project for  
+            a(href="http://learnallthenodes.com") Learn All The Nodes
+            |, and the code is 
+            a(href="https://github.com/LearnAllTheNodes/nodeslash") free and open-source
+            |.
+        .col-sm-4.col-sm-offset-1.footer__col
+          p: a(href='#') Terms of Use
+          p: a(href='#') Privacy Policy
     block extraJs
       script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js").
       script(src="/js/bootstrap.min.js")
