@@ -5,7 +5,7 @@ exports.index = function index(req,res) {
 
   function bossify() {return 'i do not like you'}
 
-  res.render('adventures/index', {bossify:bossify,title: 'Adventures - NodeSlash', user: user})
+  res.render('app/adventures/index', {bossify:bossify,title: 'Adventures - NodeSlash', user: user})
 }
 
 exports.create = function create(req,res) {
@@ -13,9 +13,9 @@ exports.create = function create(req,res) {
     return str + ' like a boss'
   }
 
-  res.render('adventures/create', {bossify:bossify})
+  res.render('app/adventures/create', {bossify:bossify})
 }
 
 exports.update = function update(req,res) {
-  res.render('adventures/update')
+  res.render('app/adventures/update')
 }

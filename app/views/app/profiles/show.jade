@@ -1,0 +1,69 @@
+extends ../../layouts/app
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li: | Ye Profile
+
+  h1 Ye Profile
+
+  ul.nav.nav-tabs(role="tablist")
+    li.active 
+      a(href="#profile" role="tab" data-toggle="tab")
+        i.fa.fa-smile-o
+        | Ye Info
+    li
+      a(href="#settings" role="tab" data-toggle="tab")
+        i.fa.fa-gears
+        | Yon Settings
+
+  .tab-content
+    .tab-pane.active#profile.profile__tab_pane
+      .row
+        .col-md-4
+          .profile__user_info
+            .profile__avatar_wrapper
+              img(src="/images/orc.png")
+
+            p= currentUser.email
+
+            p
+              buttun.btn.btn-primary
+                i.fa.fa-envelope
+                | Sendeth Message
+
+        .col-md-8.profile__tab_pane__details
+          h3 
+            i.fa.fa-paperclip
+            | Basic information
+          table.table
+            tbody
+              tr
+                th Last login
+                td Today at 12 noon
+              tr
+                th Member since
+                td Today at 12 noon
+
+          h3 
+            i.fa.fa-group
+            | Guild information
+          table.table
+            tbody
+              tr
+                th Guild name
+                td Sputternucks
+              tr
+                th Joined
+                td Today at 12 noon
+              tr
+                th Rank
+                td Lord Captain Commander
+
+    .tab-pane#settings.profile__tab_pane
+      div Settings will go here
+
+      

@@ -1,18 +1,30 @@
 extends ../layouts/home.jade
 
 block content
-  h1 Join teh web's premiere adventure venue
+  .container
+    h1 Join teh web's premiere adventure venue
+  
+    .row
+      .col-sm-6
+        .well
+          form.form-horizontal(action="/sign_up", method="post")
+            .form-group
+              label.control-label.col-sm-3 Email
+              .col-sm-9
+                input.form-control(type="email", name="email")
+            .form-group
+              label.control-label.col-sm-3 Password
+              .col-sm-9
+                input.form-control(type="password", name="password")
+            .form-gorup
+              .col-sm-offset-3
+                button.btn.btn-primary(type="submit") Start yer adventure
+      .col-sm-6
+        .panel.panel-default
+          .panel-heading.lead-copy Glory
+          .panel-body.lead-copy Mayll iseth in danger. The prophecies fortelleth of heroes that shall riseth.  Areth ye one of the heroes?
 
-  form.form-horizontal(action="/sign_up", method="post")
-    .form-group
-      label.control-label.col-sm-2 Email
-      .col-sm-10
-        input(type="email", name="email")
-    .form-group
-      label.control-label.col-sm-2 Password
-      .col-sm-10
-        input(type="password", name="password")
-    .form-gorup
-      .col-sm-offset-2
-        button(type="submit") Start yer adventure
+        .panel.panel-default
+          .panel-heading.lead-copy Battle
+          .panel-body: img(src="/images/orc.png")
 

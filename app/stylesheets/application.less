@@ -1,70 +1,77 @@
 @import "variables.less";
+@import "navBar.less";
 
 .fa {
-  margin-right: 5px;
+  margin-right: 0.5em;
 }
 
-body {
-  background-color: @brand-warning;
+html, body {
+  height: 100%;
+  background-color: @breadcrumb-bg;
 }
 
-.home_column {
-  img {
-    max-width: 100%;
-  }
-}
-
-.home_column__header {
-  text-align: center;
-}
-
-.home_column__header__em {
-  color: @brand-success;
+.wrap_all {
+  min-height: 100%;
+  margin-bottom: -65px;
 }
 
 .navbar {
   margin-bottom: 0px;
 }
 
-.main {
-  background-color: #FFF;
-  padding-bottom: @jumbotron-padding;
-}
-
-.home__jumbotron {
-    background: @brand-success url("/images/castle.png") center center  no-repeat;
-    background-size: cover;
-    text-align: center;
-    margin-bottom: 0px;
-}
-
-h1.home__jumbtotron__headline {
-  color: white;
-  color: @brand-warning;
-}
-
-.home__jumbtron__copy {
-  color: @brand-success;
-  color: white;
-}
-
-.home__jumbotron__hero {
-  background-color: rgba(0,0,0,0.6);
-}
-
-.home__feature {
-  background-color: @navbar-default-bg;
-  padding: 15px;
-  text-align: center;
-  color: #FFF;
-  margin-bottom: @jumbotron-padding;
+.container.main {
+  width: 100%;
 }
 
 footer {
+  background-color: @brand-warning;
   color: #FFF;
-  padding: @jumbotron-padding;
+  padding: @padding-large-vertical;
 }
 
-.footer__col {
+.content {
+  border-left: 1px solid darken(@gray-lighter, 10%);
+  background-color: #FFF;
 }
+
+
+.sidenav {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.sidenav__li {
+  background-color: @breadcrumb-bg;
+  border-bottom: 1px solid darken(@gray-lighter, 10%);
+}
+
+.profile__user_info {
+  text-align: center
+}
+
+.profile__avatar_wrapper {
+  display: inline-block;
+  padding: 3px;
+  background-color:white;
+  max-width: 50%;
+}
+
+.profile__avatar_wrapper img {
+  width: 100%;
+}
+
+.profile__tab_pane__details {
+  border-left: 1px solid darken(@gray-lighter, 10%);
+  padding-right: 0px;
+
+  h3 {
+    margin-top: 0px;
+  }
+}
+
+.profile__tab_pane {
+  background-color: #FFF;
+  padding: @padding-large-vertical;
+}
+
 

@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet")
+    link(type="text/css",rel="stylesheet",href="/stylesheets/application.css")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
+  body.app
+    .wrap_all
+      include navBar
+  
+      .container.main
+        .row
+          .col-sm-2.sidebar.sidenav
+            include sideNav
+  
+          .col-sm-10.content
+            include flash
+            block content
+
+    footer.footer
+      | NodeSlash is &copy;2014 Such Software, LLC
+
+    block extraJs
+      script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js").
+      script(src="/js/bootstrap.min.js")
