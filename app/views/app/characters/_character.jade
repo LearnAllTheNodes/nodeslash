@@ -1,0 +1,12 @@
+.panel.panel-default.character_launcher
+  .panel-heading= character.name
+  .panel-body
+    img.img-responsive.img-thumbnail(src="/images/sword_and_shield.png")
+    div.character_launcher__launch_button 
+      a.btn.btn-success(href='/app/adventures') 
+        i.fa.fa-rocket
+        | Adventureth!
+    div.character_launcher__launch_button
+      a(href='/app/characters/' + character.id + '/edit') 
+        i.fa.fa-pencil
+        | Edit #{character.name}

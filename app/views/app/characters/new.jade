@@ -1,0 +1,38 @@
+extends ../../layouts/app
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li
+      a(href='/app/characters')
+        i.fa.fa-group
+        | Characters
+    li: | New Character
+
+  h1 Createth a New Character
+
+  form.form-horizontal(action='/app/characters', method='POST')
+    .form-group(class=(!character.errors || typeof character.errors.name === "undefined") ? undefined : "has-error")
+      label.control-label.col-sm-2 Name
+      .col-sm-6
+        input.form-control(type='text', name='character[name]', value='#{character.name}')
+        - if (character.errors && character.errors.name)
+          span.help-text= character.errors.name.message
+    
+    .form-group
+      label.control-label.col-sm-2 Race
+      .col-sm-9
+        p.form-control-static Human
+    
+    .form-group
+      label.control-label.col-sm-2 Class
+      .col-sm-9
+        p.form-control-static Battler
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-primary(type='submit') Create Ye Character
+    

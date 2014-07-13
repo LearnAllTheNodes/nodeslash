@@ -1,0 +1,15 @@
+extends ../../layouts/app
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li
+      a(href='/app/characters')
+        i.fa.fa-group
+        | Characters
+    li: | Edit Character
+
+  h1 Edit #{character.name}

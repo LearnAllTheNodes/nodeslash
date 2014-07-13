@@ -41,4 +41,12 @@ module.exports = function(app) {
   app.get('/app/billing', billingRoutes.show)
   app.get('/app/billing/edit', billingRoutes.edit)
   app.put('/app/billing/update', billingRoutes.update)
+
+  var characterRoutes = App.route('app/charactersRoutes')
+  app.get('/app/characters', characterRoutes.index)
+  app.get('/app/characters/new', characterRoutes.new)
+  app.post('/app/characters', characterRoutes.create)
+  app.get('/app/characters/:id', characterRoutes.show)
+  app.get('/app/characters/:id/edit', characterRoutes.edit)
+  app.put('/app/characters/:id', characterRoutes.update)
 }

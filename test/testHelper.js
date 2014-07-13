@@ -11,7 +11,8 @@ App.Test = {
   clearDb: function(done) {
     // Add more models here as you need to clean them out
     var models = [
-      "User"
+      'Character'
+    , 'User'
     ]
 
     async.each(
