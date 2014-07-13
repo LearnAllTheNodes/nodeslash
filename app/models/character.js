@@ -12,6 +12,10 @@ var schema = mongoose.Schema({
 
 schema.set('autoIndex', App.env !== 'production')
 
+schema.methods.avatar = function() {
+  return '/images/sword_and_shield.png'
+}
+
 var Model = mongoose.model('Character', schema)    
 
 module.exports = Model

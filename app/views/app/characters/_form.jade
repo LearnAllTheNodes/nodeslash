@@ -1,0 +1,17 @@
+.form-group(class=(!character.errors || typeof character.errors.name === "undefined") ? undefined : "has-error")
+  label.control-label.col-sm-2 Name
+  .col-sm-6
+    input.form-control(type='text', name='character[name]', value='#{character.name}')
+    - if (character.errors && character.errors.name)
+      span.help-text= character.errors.name.message
+
+.form-group
+  label.control-label.col-sm-2 Race
+  .col-sm-9
+    p.form-control-static Human
+
+.form-group
+  label.control-label.col-sm-2 Class
+  .col-sm-9
+    p.form-control-static Battler
+

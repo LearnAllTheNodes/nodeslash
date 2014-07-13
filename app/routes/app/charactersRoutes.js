@@ -43,8 +43,19 @@ function edit(req,res) {
   })
 }
 
+var updateCharacter = App.command('character/update')()
 function update(req,res) {
-
+  updateCharacter(
+    req.params.id
+  , req.body.character
+  , function onSuccess() {
+      req.flash('notice', 'Ye hath updated your character')
+      res.redirect('app/characters/' + req.params.id)
+    }
+  , function onError() {
+      res.render('app/characters/edit', {character:record, flash:{error: 'Oopseth!  There wast a problem update your character.'}})
+    }
+  )
 }
 
 function destroy(req,res) {
