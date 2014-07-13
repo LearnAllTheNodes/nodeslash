@@ -3,6 +3,7 @@ var passport = require('passport')
 module.exports = function(app) {
   var homeRoutes = App.route('homeRoutes')
   app.get("/",               homeRoutes.home)
+  app.get("/about",          homeRoutes.about)
 
   var bestiaryRoutes = App.route('bestiaryRoutes')
   app.get('/bestiary', bestiaryRoutes.index)
@@ -33,5 +34,11 @@ module.exports = function(app) {
 
   var profilesRoutes = App.route('app/profilesRoutes')
   app.get('/app/profile', profilesRoutes.showSelf)
+  app.get('/app/profile/edit', profilesRoutes.edit)
   app.get('/app/profiles/:id', profilesRoutes.show)
+
+  var billingRoutes = App.route('app/billingRoutes')
+  app.get('/app/billing', billingRoutes.show)
+  app.get('/app/billing/edit', billingRoutes.edit)
+  app.put('/app/billing/update', billingRoutes.update)
 }

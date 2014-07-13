@@ -1,8 +1,15 @@
 extends ../../layouts/app
 
 block content
-  h1 This is the dashboard
-  p It is mostly unfunctional right now.
-  p This may or may not have something to do with a band of misfits that is roaming the castle.
-  p
-    img(src="/images/misfits.png")
+  h1 We welcometh you!
+  - if (!context.hasCharacters)
+    .panel.panel-info
+      .panel-heading Ye haveth no characters!
+      .panel-body.attention_grabber
+        p Hordes such as these shalt trampleth Mayll unless you create a new character and wagest battle.
+        p: img(src="/images/misfits.png")
+        p 
+          a.btn.btn-primary(href="/app/characters/new") 
+            i.fa.fa-arrow-right
+            |  Createth one now
+            i.fa.fa-arrow-left.attention_grabber__arrow_left

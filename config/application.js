@@ -33,6 +33,9 @@ global.App = {
 , model: function(path) {
     return this.require("app/models/" + path)
   }
+, presenter: function(path) {
+    return this.require("app/presenters/" + path)
+  }
 , route: function(path) {
     return this.require("app/routes/" + path)
   }

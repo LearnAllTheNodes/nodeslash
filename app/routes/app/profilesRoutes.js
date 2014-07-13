@@ -8,5 +8,10 @@ function show(req,res) {
   res.render('app/profiles/show')
 }
 
+function edit(req,res) {
+  res.render('app/profiles/edit')
+}
+
 exports.showSelf = showSelf
 exports.show = show
+exports.edit = edit
