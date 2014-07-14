@@ -44,6 +44,9 @@ global.App = {
   }
 }
 
+// Wire up authorization
+App.auth = App.require('app/authorization/accessControl')
+
 // Use Jade for views
 App.app.set('views', App.appPath("app/views"))
 App.app.set('view engine', 'jade');
@@ -91,7 +94,10 @@ App.app.use(App.middleware('setFlash'))
 App.app.use(App.app.router)
 App.app.use(express.static(App.appPath('public')))
 
-App.require("config/routes")(App.app)
+// Error middlewares
+App.app.use(App.middleware('notAuthorized'))
+
+App.require("config/routes")(App.app,App.auth)
 
 // Bootstrap teh db
 App.require('config/database')(process.env.DATABASE_URL || 'mongodb://localhost/nodeslash_' + App.env)
