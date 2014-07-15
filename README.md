@@ -2,43 +2,35 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/24-style-tricks-for-the-design-impaired)
+* [Watch:](http://www.learnallthenodes.com/episodes/25-authorization-part-2-ensuring-they-have-permission)
 
-Do you develop great backend systems but find that making a website look nice is a Dark Art?  Do you ever wish there were some easy fixes for that problem?  That totally describes me.
+In our previous episodes with Passport we've set up a way to verify that a user is who the user claims to be.  We can log users in, keep them away from pages that require them to be logged in, and we even convinced ourselves of that via Firebug and the Node console.
 
-Unfortunately, there's no way to make design easy or mechanical.  But there are few tricks you can drop in to spruce up your struggling pages.  We've already seen how Bootstrap can do wonders for us, but it doesn't stop there.  In this week's episode we look at a few more tricks savvy developers can use to fake the appearance of design skills or that experienced design folks can use to save some initial setup.
+Firebug and the Node console won't pacify our users much if nefarious actors are able to own their data in our apps.  In this episode we're going to ensure that our users have the permissions they're claiming, and we do that with a package called "authorized".
 
 ### Notes
 
-[Opening image](http://openclipart.org/detail/81337/interaction-designers-by-mairin)
+[Opening graphic](http://openclipart.org/detail/183954/dont-touch-by-frankes-183954)
 
-[Bootstrap CDN](http://www.bootstrapcdn.com/)
+[`authorized`](https://github.com/tschaub/authorized)
 
-[Justin Dorfman](https://twitter.com/jdorfman)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00025)
 
-[Joshua Mervine](https://twitter.com/mervinej)
-
-[Bootswatch](http://bootswatch.com/)
-
-[Wrap Bootstrap](https://wrapbootstrap.com/)
-
-[Font Awesome website](http://fortawesome.github.io/Font-Awesome/)
-
-[Kuler](kuler.adobe.com)
-
-    // Using Bootstrap CDN for our theme
-    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet")
+    // app/authorization/accessControl.js
+    var auth = require('authorized')
     
+    auth.role('character.owner', function(record,req,cb) {
+      cb(null, req.user.id === record.userId.toString())        
+    })
     
-    // Font-awesome
+    var Character = App.model('character')
+    auth.entity('character', function fetchCharacter(req,cb) {
+      Character.findById(req.params.id, cb)
+    })
     
-    // The stylesheet 
-    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
+    auth.action('modify character', ['character.owner'])
     
-    // Actually using one
-    button.btn.btn-primary
-      .fa.fa-road
-      | Answer the call
+    module.exports = auth
 
 ### Previous episodes' code
 
