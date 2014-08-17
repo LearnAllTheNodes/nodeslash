@@ -17,9 +17,9 @@ nav.navbar.navbar-inverse(role="navigation")
     ul.nav.navbar-nav.navbar-right
       - if (!isAuthenticated)
         li
-          a(href="/sign_in") Sign in
+          a(href="/auth/sign_in") Sign in
         li
-          a(href="/sign_up") Sign up
+          a(href="/auth/sign_up") Sign up
       - else
         li.dropdown
           a(href="#" class="dropdown-toggle" data-toggle="dropdown")
@@ -27,21 +27,21 @@ nav.navbar.navbar-inverse(role="navigation")
             span.caret
           ul.dropdown-menu(role="menu")
             li
-              a(href="/app")
+              a(href="/portal")
                 i.fa.fa-dashboard.fa-fw
                 | Ye Dashboard
             li.divider
             li
-              a(href="/app/profile")
+              a(href="/portal/profile")
                 i.fa.fa-smile-o.fa-fw
                 | Ye Profile
             li
-              a(href="/app/billing")
+              a(href="/portal/billing")
                 i.fa.fa-credit-card.fa-fw
                 | Ye Billing
             li.divider
             li
-              a(href="/sign_out")
+              a(href="/auth/sign_out")
                 i.fa.fa-sign-out.fa-fw
                 |  Signeth Out
 

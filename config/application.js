@@ -45,13 +45,14 @@ global.App = {
 }
 
 // Wire up authorization
-App.auth = App.require('app/authorization/accessControl')
+App.authorization = App.require('app/authorization/accessControl')
 
 // Use Jade for views
 App.app.set('views', App.appPath("app/views"))
 App.app.set('view engine', 'jade');
 App.app.set('view options', { pretty: env === 'development' });
-App.app.locals({bossify:App.util('bossify'), pretty:true})
+App.app.locals.bossify = App.util('bossify')
+App.app.locals.pretty = true
 
 // Configure less
 var lessMiddleware = require('less-middleware')
@@ -83,21 +84,30 @@ App.app.use(lessMiddleware(
 ))
 
 // Middlewarez
-App.app.use(express.bodyParser())
-App.app.use(express.methodOverride())
-App.app.use(express.cookieParser())
-App.app.use(express.cookieSession({secret: "it'sasecrettoeverybody", key: "session"}))
+var bodyParser = require('body-parser')
+App.app.use(bodyParser.urlencoded({extended:true}))
+
+var methodOverride = require('method-override')
+App.app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method.toLowerCase()
+    return method
+  }
+}))
+//App.app.use(express.cookieSession({secret: "it'sasecrettoeverybody", key: "session"}))
+App.app.use(require('cookie-session')({secret: "it'sasecrettoeverybody", key: 'nodeslash-session'}))
 App.require('config/initializers/passport.js')()
 App.app.use(App.middleware('attachAuthenticationStatus'))
 App.app.use(require('connect-flash')())
 App.app.use(App.middleware('setFlash'))
-App.app.use(App.app.router)
 App.app.use(express.static(App.appPath('public')))
 
 // Error middlewares
 App.app.use(App.middleware('notAuthorized'))
 
-App.require("config/routes")(App.app,App.auth)
+App.require("config/routes")(App.app,App.authorization)
 
 // Bootstrap teh db
 App.require('config/database')(process.env.DATABASE_URL || 'mongodb://localhost/nodeslash_' + App.env)

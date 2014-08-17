@@ -1,0 +1,31 @@
+extends ../../layouts/portal
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/portal')
+        i.fa.fa-home
+        | Home
+    li: | Ye Billing
+
+  h1 Ye Billing
+
+  ul.nav.nav-tabs(role="tablist")
+    li.active 
+      a(href="#payment_info" role="tab" data-toggle="tab")
+        i.fa.fa-credit-card
+        | Ye Billing
+    li
+      a(href="#invoices" role="tab" data-toggle="tab")
+        i.fa.fa-file
+        | Yon Invoices
+
+  .tab-content
+    .tab-pane.active#payment_info.profile__tab_pane
+      p 
+        Your prefered payment method is:
+
+    .tab-pane#invoices.profile__tab_pane
+      div Invoices
+
+      

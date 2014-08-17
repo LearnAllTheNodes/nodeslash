@@ -5,6 +5,8 @@ function createCharacter() {
   return function _createCharacter(user,params,success,failure,error) {
     var record = new Character(params)
     record.userId = user.id
+    console.log(params)
+
 
     record.save(function(err) {
       if (err) return failure(err,record)

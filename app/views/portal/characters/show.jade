@@ -1,0 +1,32 @@
+extends ../../layouts/portal
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li 
+      a(href='/portal/characters')
+        i.fa.fa-group
+        | Characters
+    li: | Vieweth Character
+
+  h1 #{character.name}
+
+  .row
+    .col-sm-3
+      img.img-thumbnail.img-responsive(src="/images/sword_and_shield.png")
+    .col-sm-9
+      | #{character.name} is a human battler.
+
+  .well.actions
+    a.btn.btn-primary(href="/portal/characters/" + character.id + "/edit")
+      i.fa.fa-pencil
+      | Edit #{character.name}
+    form.actions__form(action='/portal/characters/' + character.id + '/destroy', method='POST')
+      input(type='hidden', name='_method', value='DELETE')
+      button.btn.btn-danger(type='submit')
+        i.fa.fa-minus-circle
+        | Destroyeth #{character.name}
+

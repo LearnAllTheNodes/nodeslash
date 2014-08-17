@@ -1,0 +1,34 @@
+extends ../../layouts/portal
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li
+      a(href='/portal/characters')
+        i.fa.fa-group
+        | Characters
+    li: | Edit Character
+
+  h1 Edit #{character.name}
+
+  .row
+    .col-sm-3
+      .panel.panel-default
+        .panel-heading Appearance
+        .panel-body
+          img.img-responsive(src="#{character.avatar()}")
+
+    .col-sm-9
+      .panel.panel-default
+        .panel-heading Details
+        .panel-body
+          form.form-horizontal(action='/portal/characters/' + character.id, method='POST')
+            input(type='hidden', name='_method', value='PUT')
+            include _form
+        
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button.btn.btn-primary(type='submit') Update Ye Character

@@ -1,0 +1,23 @@
+extends ../../layouts/portal
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li
+      a(href='/portal/characters')
+        i.fa.fa-group
+        | Characters
+    li: | New Character
+
+  h1 Createth a New Character
+
+  form.form-horizontal(action='/portal/characters', method='POST')
+    include _form
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-primary(type='submit') Create Ye Character
+    
