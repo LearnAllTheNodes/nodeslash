@@ -4,6 +4,9 @@
 
 * [Watch:](http://www.learnallthenodes.com/episodes/30-auto-restart-your-dev-server-with-this-one-weird-trick)
 
+So here we are at episode 30.  We've seen a whole lot of node, and we've spent a lot of time restarting the server.  Given how quickly our server restarts, that hasn't been terribly painful.  But what if it could be better still?  What if there were a way to have our server automatically pick up our changes without our manual effort?
+
+That's just the topic for this week's episode.
 
 ### Notes
 
