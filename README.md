@@ -2,35 +2,21 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/25-authorization-part-2-ensuring-they-have-permission)
+* [Watch:](http://www.learnallthenodes.com/episodes/29-upgrading-an-actual-app-to-express-4)
 
-In our previous episodes with Passport we've set up a way to verify that a user is who the user claims to be.  We can log users in, keep them away from pages that require them to be logged in, and we even convinced ourselves of that via Firebug and the Node console.
+n our last few episodes we highlighted some of the useful new features in Express 4, hoping to make the case for why you would want to upgrade an app to it.  We also looked at some functionality we already knew about and how it changed in Express 4.  We looked at all that in the context of a toy app that didn't do anything remotely useful.
 
-Firebug and the Node console won't pacify our users much if nefarious actors are able to own their data in our apps.  In this episode we're going to ensure that our users have the permissions they're claiming, and we do that with a package called "authorized".
+In this episode we take our knowledge of Express 4 and apply it to an actual application-- that web sensation NodeSlash.  Why take the time for it?  Well, new features are nice to learn in isolation, but businesses aren't built on toy apps.  And the project you're working on probably isn't tailored just to show off what Express 4 can do.  You work in real code, so you need to see how to upgrade real code.
 
 ### Notes
 
-[Opening graphic](http://openclipart.org/detail/183954/dont-touch-by-frankes-183954)
+[`method-override`](https://github.com/expressjs/method-override)
 
-[`authorized`](https://github.com/tschaub/authorized)
+[Old `method-override` that used to be bundled in Express.](http://www.senchalabs.org/connect/methodOverride.html)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00025)
+[Opening clipart](http://openclipart.org/detail/170465/orange-forklift-loader-with-box-by-br0nde-170465)
 
-    // app/authorization/accessControl.js
-    var auth = require('authorized')
-    
-    auth.role('character.owner', function(record,req,cb) {
-      cb(null, req.user.id === record.userId.toString())        
-    })
-    
-    var Character = App.model('character')
-    auth.entity('character', function fetchCharacter(req,cb) {
-      Character.findById(req.params.id, cb)
-    })
-    
-    auth.action('modify character', ['character.owner'])
-    
-    module.exports = auth
+[Episode Code](https://github.com/LearnAllTheNodes/nodeslash/tree/00029)
 
 ### Previous episodes' code
 
