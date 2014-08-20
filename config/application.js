@@ -96,7 +96,6 @@ App.app.use(methodOverride(function(req, res){
     return method
   }
 }))
-//App.app.use(express.cookieSession({secret: "it'sasecrettoeverybody", key: "session"}))
 App.app.use(require('cookie-session')({secret: "it'sasecrettoeverybody", key: 'nodeslash-session'}))
 App.require('config/initializers/passport.js')()
 App.app.use(App.middleware('attachAuthenticationStatus'))
