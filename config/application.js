@@ -9,6 +9,7 @@ global.App = {
   app: express()
 , port: process.env.PORT || 3000
 , version: packageJson.version
+, name: packageJson.name
 , root: path.join(__dirname, '..')
 , appPath: function(path) {
     return this.root + '/' + path

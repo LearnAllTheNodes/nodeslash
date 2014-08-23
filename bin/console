@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+require('../config/application')
+
+var repl = require('repl')
+
+var ourRepl = repl.start({
+  prompt: App.name + '> '
+})
+
+ourRepl.on('exit', function() {
+  console.log('Goodbye, world!')
+  process.exit(0)
+})
