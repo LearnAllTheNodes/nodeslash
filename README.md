@@ -2,23 +2,25 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/30-auto-restart-your-dev-server-with-this-one-weird-trick)
+* [Watch:](http://www.learnallthenodes.com/episodes/31-nvm-node-version-manager)
 
-So here we are at episode 30.  We've seen a whole lot of node, and we've spent a lot of time restarting the server.  Given how quickly our server restarts, that hasn't been terribly painful.  But what if it could be better still?  What if there were a way to have our server automatically pick up our changes without our manual effort?
+So, we've already completed 31 episodes, and I really have no idea how you've actually installed Node.js.  When I started the series, I did so with that bird's-eye overview of how Node works.  I figured you'd stop watching if we didn't get quickly into actually building *something* (even if it was ridiculous), with Node.
 
-That's just the topic for this week's episode.
+In this episode, I'm going to show you how I installed Node and a fantastic tool for managing different Node versions.  Node is under active development, so new versions come out pretty regularly.  With today's episode, you'll be able to experiment with the new ones with ease.
 
 ### Notes
 
-[`node-dev`](https://github.com/fgnass/node-dev)
+[nvm homepage](https://github.com/creationix/nvm)
 
-[npm install](https://www.npmjs.org/doc/cli/npm-install.html)
+[Tim Caswell's site](https://creationix.com/)
 
-[npm scripts](https://www.npmjs.org/doc/misc/npm-scripts.html)
+[nvmw](https://github.com/hakobera/nvmw)
 
-[Opening clipart](http://openclipart.org/detail/171074/reload-icon-by-mlampret-171074)
+[.bash_profile vs .bashrc by Josh Staiger](http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00030)
+[What's the difference between .bashrc, .bash_profile, and .environment?](http://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment)
+
+[Opening clipart](http://openclipart.org/detail/3730/welder-by-fundraw_dot_com)
 
 ### Previous episodes' code
 
