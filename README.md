@@ -2,25 +2,19 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/31-nvm-node-version-manager)
+* [Watch:](http://www.learnallthenodes.com/episodes/33-an-app-aware-console)
 
-So, we've already completed 31 episodes, and I really have no idea how you've actually installed Node.js.  When I started the series, I did so with that bird's-eye overview of how Node works.  I figured you'd stop watching if we didn't get quickly into actually building *something* (even if it was ridiculous), with Node.
+Sometimes when you're working on an app you need to be able to run arbitrary commands.  You want to play with your app's modules without running a server.  You just want to be able to execute arbitrary statements and immediately see the results.  You want a REPL, or read-eval-print-loop that knows about your application.
 
-In this episode, I'm going to show you how I installed Node and a fantastic tool for managing different Node versions.  Node is under active development, so new versions come out pretty regularly.  With today's episode, you'll be able to experiment with the new ones with ease.
+You can achieve this with the basic `node` command and a few `require` statements, but why stop there when you can get crazy with it?  That's exactly what we do in this episode.
 
 ### Notes
 
-[nvm homepage](https://github.com/creationix/nvm)
+[Opening clipart](https://openclipart.org/detail/22674/icon_console-by-jean_victor_balin)
 
-[Tim Caswell's site](https://creationix.com/)
+[`repl` documentation](http://nodejs.org/api/repl.html)
 
-[nvmw](https://github.com/hakobera/nvmw)
-
-[.bash_profile vs .bashrc by Josh Staiger](http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html)
-
-[What's the difference between .bashrc, .bash_profile, and .environment?](http://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment)
-
-[Opening clipart](http://openclipart.org/detail/3730/welder-by-fundraw_dot_com)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00032)
 
 ### Previous episodes' code
 
