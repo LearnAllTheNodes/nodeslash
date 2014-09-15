@@ -30,6 +30,9 @@ function portalRoutes(app,auth) {
   portalRouter.route('/profile/edit').get(profilesRoutes.edit)
   portalRouter.route('/profiles/:id').get(profilesRoutes.show)
 
+  portalRouter.route('/billing/dangerous_action')
+    .post(billingRoutes.unsecure)
+
   portalRouter.route('/billing').get(billingRoutes.show)
   portalRouter.route('/billing/edit').get(billingRoutes.edit)
   portalRouter.put('/billing/update').get(billingRoutes.update)
