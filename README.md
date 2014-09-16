@@ -14,7 +14,7 @@ You can achieve this with the basic `node` command and a few `require` statement
 
 [`repl` documentation](http://nodejs.org/api/repl.html)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00032)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00033)
 
 ### Previous episodes' code
 
