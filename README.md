@@ -2,25 +2,21 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/31-nvm-node-version-manager)
+* [Watch:](http://www.learnallthenodes.com/episodes/34-anatomy-of-a-cross-site-request-forgery-attack)
 
-So, we've already completed 31 episodes, and I really have no idea how you've actually installed Node.js.  When I started the series, I did so with that bird's-eye overview of how Node works.  I figured you'd stop watching if we didn't get quickly into actually building *something* (even if it was ridiculous), with Node.
+When a site becomes as overwhelmingly successful as NodeSlash and your project are becoming, you'll need to take mind to keep it as secure as possible.  While no amount of security will deter the most determined of attackers, there are a few things we can do that are the digital equivalent of not leaving the front door open with a big sign that says, "haxor me."
 
-In this episode, I'm going to show you how I installed Node and a fantastic tool for managing different Node versions.  Node is under active development, so new versions come out pretty regularly.  With today's episode, you'll be able to experiment with the new ones with ease.
+In today's episode we're going to learn about an attack vector called cross-site request forgery and a means to deal with it.
 
 ### Notes
 
-[nvm homepage](https://github.com/creationix/nvm)
+[Opening clipart](https://openclipart.org/image/800px/svg_to_png/181205/Predator_Hellfires.png)
 
-[Tim Caswell's site](https://creationix.com/)
+[Wikipedia article on CSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery)
 
-[nvmw](https://github.com/hakobera/nvmw)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00034)
 
-[.bash_profile vs .bashrc by Josh Staiger](http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html)
-
-[What's the difference between .bashrc, .bash_profile, and .environment?](http://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment)
-
-[Opening clipart](http://openclipart.org/detail/3730/welder-by-fundraw_dot_com)
+[totallylegitforum.com code](https://github.com/LearnAllTheNodes/csrf-demo)
 
 ### Previous episodes' code
 
