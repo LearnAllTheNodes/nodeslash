@@ -2,25 +2,21 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/31-nvm-node-version-manager)
+* [Watch:](http://www.learnallthenodes.com/episodes/35-protecting-against-csrf-attacks-in-node)
 
-So, we've already completed 31 episodes, and I really have no idea how you've actually installed Node.js.  When I started the series, I did so with that bird's-eye overview of how Node works.  I figured you'd stop watching if we didn't get quickly into actually building *something* (even if it was ridiculous), with Node.
+Last time we saw the anatomy of a Cross-site Request Forgery attack, or CSRF for short.  We saw how it worked, and what sort of consequences one could expect from such an attack.  It's challenging to pull one off, but it could be pretty bad.  And it's also really hard to detect, since it's the legitimate user who actually ends up performing the action.
 
-In this episode, I'm going to show you how I installed Node and a fantastic tool for managing different Node versions.  Node is under active development, so new versions come out pretty regularly.  With today's episode, you'll be able to experiment with the new ones with ease.
+In this episode we'll see how to protect against this attack vector.
 
 ### Notes
 
-[nvm homepage](https://github.com/creationix/nvm)
+[Opening clipart](https://openclipart.org/detail/201954/stop-drone-attacks-by-worker-201954)
 
-[Tim Caswell's site](https://creationix.com/)
+[Most useful Node module ever](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
-[nvmw](https://github.com/hakobera/nvmw)
+[`csurf`](https://github.com/expressjs/csurf)
 
-[.bash_profile vs .bashrc by Josh Staiger](http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html)
-
-[What's the difference between .bashrc, .bash_profile, and .environment?](http://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment)
-
-[Opening clipart](http://openclipart.org/detail/3730/welder-by-fundraw_dot_com)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00035)
 
 ### Previous episodes' code
 

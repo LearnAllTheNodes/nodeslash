@@ -1,7 +1,8 @@
 var env         = process.env.NODE_ENV || 'development'
-  , packageJson = require('../package.json')
-  , path        = require('path')
-  , express     = require('express')
+var packageJson = require('../package.json')
+var path        = require('path')
+var express     = require('express')
+var csurf = require('csurf')
 
 console.log('Loading App in ' + env + ' mode.')
 
@@ -98,15 +99,19 @@ App.app.use(methodOverride(function(req, res){
   }
 }))
 App.app.use(require('cookie-session')({secret: "it'sasecrettoeverybody", key: 'nodeslash-session'}))
+App.app.use(csurf())
 App.require('config/initializers/passport.js')()
 App.app.use(App.middleware('attachAuthenticationStatus'))
+App.app.use(App.middleware('attachCsrfToken'))
 App.app.use(require('connect-flash')())
 App.app.use(App.middleware('setFlash'))
 App.app.use(express.static(App.appPath('public')))
 
 // Error middlewares
 App.app.use(App.middleware('notAuthorized'))
+App.app.use(App.middleware('invalidCsrfToken'))
 
+// Bootstrap teh routes
 App.require("config/routes")(App.app,App.authorization)
 
 // Bootstrap teh db
