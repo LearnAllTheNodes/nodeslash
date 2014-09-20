@@ -8,6 +8,7 @@ block content
       .col-sm-6
         .well
           form.form-horizontal(action="/auth/sign_up", method="post")
+            input(type="hidden", name="_csrf", value="#{csrfTokenFunction()}")
             .form-group
               label.control-label.col-sm-3 Email
               .col-sm-9
