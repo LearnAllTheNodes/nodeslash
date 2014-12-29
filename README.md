@@ -2,19 +2,21 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/33-an-app-aware-console)
+* [Watch:](http://www.learnallthenodes.com/episodes/35-protecting-against-csrf-attacks-in-node)
 
-Sometimes when you're working on an app you need to be able to run arbitrary commands.  You want to play with your app's modules without running a server.  You just want to be able to execute arbitrary statements and immediately see the results.  You want a REPL, or read-eval-print-loop that knows about your application.
+Last time we saw the anatomy of a Cross-site Request Forgery attack, or CSRF for short.  We saw how it worked, and what sort of consequences one could expect from such an attack.  It's challenging to pull one off, but it could be pretty bad.  And it's also really hard to detect, since it's the legitimate user who actually ends up performing the action.
 
-You can achieve this with the basic `node` command and a few `require` statements, but why stop there when you can get crazy with it?  That's exactly what we do in this episode.
+In this episode we'll see how to protect against this attack vector.
 
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/22674/icon_console-by-jean_victor_balin)
+[Opening clipart](https://openclipart.org/detail/201954/stop-drone-attacks-by-worker-201954)
 
-[`repl` documentation](http://nodejs.org/api/repl.html)
+[Most useful Node module ever](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00033)
+[`csurf`](https://github.com/expressjs/csurf)
+
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00035)
 
 ### Previous episodes' code
 
