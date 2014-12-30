@@ -12,6 +12,7 @@ global.App = {
 , port: process.env.PORT || 3000
 , version: packageJson.version
 , name: packageJson.name
+, mailSender: process.env.MAIL_SENDER || '"NodeSlash Development" <no-reply@nodeslash.com>'
 , root: path.join(__dirname, '..')
 , appPath: function(path) {
     return this.root + '/' + path
@@ -45,10 +46,13 @@ global.App = {
 , util: function(path) {
     return this.require("app/utils/" + path)
   }
+, urls: {
+    root: process.env.ROOT_URL
+  }
 }
 
 var mailerOptions = {}
-if (App.env !== 'production') {
+if (App.env === 'production') {
   mailerOptions.transport = 'live'
   mailerOptions.options = {
     auth: {
@@ -56,7 +60,6 @@ if (App.env !== 'production') {
     , api_key: process.env.SENDGRID_PASSWORD
     }
   }
-  console.log(mailerOptions)
 } else {
   mailerOptions.transport = 'local'
   mailerOptions.options = {

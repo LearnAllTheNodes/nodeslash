@@ -3,7 +3,7 @@ function ensureAuthenticated(req,res,next) {
     next()
   } else {
     req.flash('error', 'You must be logged in to do that.')
-    res.redirect('/sign_in')
+    res.redirect('/auth/sign_in')
   }
 }
 
