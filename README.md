@@ -2,21 +2,19 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/35-protecting-against-csrf-attacks-in-node)
+* [Watch:](http://www.learnallthenodes.com/episodes/39-how-to-send-email-in-node)
 
-Last time we saw the anatomy of a Cross-site Request Forgery attack, or CSRF for short.  We saw how it worked, and what sort of consequences one could expect from such an attack.  It's challenging to pull one off, but it could be pretty bad.  And it's also really hard to detect, since it's the legitimate user who actually ends up performing the action.
+If you've ever signed up for any web app, or pretty much browsed anything on the internet for longer than, say, 5 seconds, you've probably come to learn that web sites really like to send emails.  If you're at all responsible for marketing and user retention, you're probably also very aware of the business value in being able to send emails.
 
-In this episode we'll see how to protect against this attack vector.
+Well, there's nothing special about Node that prevents you too from adding to the volume of email floating around the internet.  In this episode we're going to look into one method for sending email in Node.
 
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/201954/stop-drone-attacks-by-worker-201954)
+[Opening clipart](https://openclipart.org/detail/29213/paper-plane)
 
-[Most useful Node module ever](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[nodemailer](http://www.nodemailer.com/)
 
-[`csurf`](https://github.com/expressjs/csurf)
-
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00035)
+[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00039)
 
 ### Previous episodes' code
 

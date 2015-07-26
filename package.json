@@ -26,6 +26,8 @@
     "method-override": "^2.1.3",
     "mongoose": "~3.8.4",
     "mongoose-validate": "latest",
+    "nodemailer": "^1.4.0",
+    "nodemailer-pickup-transport": "^0.1.1",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0"
   },
