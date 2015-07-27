@@ -2,19 +2,25 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/39-how-to-send-email-in-node)
+* [Watch:](http://www.learnallthenodes.com/episodes/40-npm-link-or-how-to-further-develop-a-node-package)
 
-If you've ever signed up for any web app, or pretty much browsed anything on the internet for longer than, say, 5 seconds, you've probably come to learn that web sites really like to send emails.  If you're at all responsible for marketing and user retention, you're probably also very aware of the business value in being able to send emails.
+A couple of episodes ago we made a Node package called `letter-opener`.  I use the term "made" loosely here, because the package doesn't really do anything besides consume a valid name in the global npm namespace.
 
-Well, there's nothing special about Node that prevents you too from adding to the volume of email floating around the internet.  In this episode we're going to look into one method for sending email in Node.
+In this episode, we're going to flesh the package out and in the process show how to do so in the context of the application that actually uses it.
 
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/29213/paper-plane)
+[Opening clipart](https://openclipart.org/detail/214574/building-blocks)
 
-[nodemailer](http://www.nodemailer.com/)
+[Ta Da sound by Mike Koenig](http://soundbible.com/1003-Ta-Da.html)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00039)
+[`npm link`](https://docs.npmjs.com/cli/link)
+
+[`letter-opener`](#)
+
+[`letter-opener-express`](#)
+
+[`mailparser`](https://www.npmjs.com/package/mailparser)
 
 ### Previous episodes' code
 
