@@ -11,7 +11,11 @@ global.App = {
 , port: process.env.PORT || 3000
 , version: packageJson.version
 , name: packageJson.name
+, mailSender: process.env.MAIL_SENDER || '"NodeSlash Development" <no-reply@nodeslash.com>'
 , root: path.join(__dirname, '..')
+, urls: {
+    root: process.env.ROOT_URL
+  }
 , appPath: function(path) {
     return this.root + '/' + path
   }
@@ -45,6 +49,8 @@ global.App = {
     return this.require("app/utils/" + path)
   }
 }
+
+App.mailer = require('../lib/mailer')()
 
 // Wire up authorization
 App.authorization = App.require('app/authorization/accessControl')

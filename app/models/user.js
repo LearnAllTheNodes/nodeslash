@@ -4,6 +4,16 @@ var mongoose = require('mongoose')
   , SALT_WORK_FACTOR = 10
   , REQUIRED_PASSWORD_LENGTH = 8
 
+var config = {
+  urls: App.urls
+, mail: {
+    sender: App.mailSender
+  }
+, mailer: App.mailer
+}
+
+var sendUserRegistrationEmail = require('../userRegistrations/actions/sendUserRegistrationEmail')(config)
+
 function validateStringLength(value) {
   return value && value.length >= REQUIRED_PASSWORD_LENGTH
 }
@@ -19,12 +29,20 @@ schema.pre('save', function(next) {
 
   if (!self.isModified('passwordHash')) return next()
 
+  self.wasNew = self.isNew
+
   bcrypt.hash(self.passwordHash, SALT_WORK_FACTOR, function(err,hash) {
     if (err) return next(err)
 
     self.passwordHash = hash
     next()
   })
+})
+
+schema.post('save', function (user) {
+  if (user.wasNew) {
+    sendUserRegistrationEmail(user)
+  }
 })
 
 schema.statics.findByEmailAndPassword = function findByEmailAndPassword(email,password,cb) {

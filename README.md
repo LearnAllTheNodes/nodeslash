@@ -2,25 +2,25 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/40-npm-link-or-how-to-further-develop-a-node-package)
+* [Watch:](http://www.learnallthenodes.com/episodes/41-templates-in-email)
 
-A couple of episodes ago we made a Node package called `letter-opener`.  I use the term "made" loosely here, because the package doesn't really do anything besides consume a valid name in the global npm namespace.
+The past few episodes dealing with email were throwbacks to an earlier time when we were constructing HTML pages out of single-line strings.  I don't know about you, but I was very happy to leave those days behind.  It's time to also leave them behind when it comes to sending our emails.
 
-In this episode, we're going to flesh the package out and in the process show how to do so in the context of the application that actually uses it.
+In this episode we're going to look at how to generate richer email content with less confusion by using email templates.
 
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/214574/building-blocks)
+[Opening clipart](https://openclipart.org/detail/182044/plumier)
 
-[Ta Da sound by Mike Koenig](http://soundbible.com/1003-Ta-Da.html)
+[`email-templates`](https://www.npmjs.com/package/email-templates)
 
-[`npm link`](https://docs.npmjs.com/cli/link)
+[DeLorean clipart](https://openclipart.org/detail/24464/car-delorean)
 
-[`letter-opener`](#)
+[Wagon-Ox clipart](https://openclipart.org/detail/180734/wagon-ox)
 
-[`letter-opener-express`](#)
+[old medium truck clipart](https://openclipart.org/detail/16320/old-medium-truck)
 
-[`mailparser`](https://www.npmjs.com/package/mailparser)
+[Penny Farthing (Large Small Wheels) Bicycle Silhouette](https://openclipart.org/detail/221805/penny-farthing-large-small-wheels-bicycle-silhouette)
 
 ### Previous episodes' code
 
