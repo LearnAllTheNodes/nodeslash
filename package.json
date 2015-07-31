@@ -19,6 +19,7 @@
     "connect-flash": "^0.1.1",
     "cookie-session": "^1.0.2",
     "csurf": "^1.6.1",
+    "dotenv": "^1.2.0",
     "email-templates": "^2.0.1",
     "express": "^4.7.2",
     "jade": "^1.1.5",
@@ -30,6 +31,7 @@
     "mongoose-validate": "latest",
     "nodemailer": "^1.4.0",
     "nodemailer-pickup-transport": "^0.1.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0"
   },

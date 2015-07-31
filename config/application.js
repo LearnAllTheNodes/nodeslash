@@ -1,3 +1,5 @@
+require('dotenv').load()
+
 var env         = process.env.NODE_ENV || 'development'
 var packageJson = require('../package.json')
 var path        = require('path')
@@ -50,7 +52,23 @@ global.App = {
   }
 }
 
-App.mailer = require('../lib/mailer')()
+var mailerOptions = {}
+if (App.env !== 'production') {
+  mailerOptions.transport = 'live'
+  mailerOptions.options = {
+    auth: {
+      api_user: process.env.SENDGRID_USERNAME
+    , api_key: process.env.SENDGRID_PASSWORD
+    }
+  }
+} else {
+  mailerOptions.transport = 'local'
+  mailerOptions.options = {
+    directory: App.appPath('tmp/email')
+  }
+}
+
+App.mailer = require('../lib/mailer')(mailerOptions)
 
 // Wire up authorization
 App.authorization = App.require('app/authorization/accessControl')

@@ -2,25 +2,27 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/41-templates-in-email)
+* [Watch:](http://www.learnallthenodes.com/episodes/42-dont-put-credentials-into-source-control)
 
-The past few episodes dealing with email were throwbacks to an earlier time when we were constructing HTML pages out of single-line strings.  I don't know about you, but I was very happy to leave those days behind.  It's time to also leave them behind when it comes to sending our emails.
+Web apps these days tend to not implement everything that they appear to do.  There's a wealth of external services out there, such as Amazon's S3, SendGrid, and others.
 
-In this episode we're going to look at how to generate richer email content with less confusion by using email templates.
+Our apps can take advantage of these services, and to do so usually requires some sort of authentication credentials.  Especially if we're building an open-source project, it could be disastrous if we accidentally put those credentials into source control.  Imagine if the whole world were able to spin up Amazon servers using your credentials and consequently your credit card.  We don't want that.
+
+In this episode, we're going to look at a nice way to make development easy while at the same time protecting our sensitive credentials.
 
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/182044/plumier)
+[Opening clipart](https://openclipart.org/detail/169128/simple-electronic-safety-vault)
 
-[`email-templates`](https://www.npmjs.com/package/email-templates)
+[Twelve-factor app](http://12factor.net/)
 
-[DeLorean clipart](https://openclipart.org/detail/24464/car-delorean)
+[`dotenv`](https://www.npmjs.com/package/dotenv)
 
-[Wagon-Ox clipart](https://openclipart.org/detail/180734/wagon-ox)
+[`nodemailer-sendgrid-transport`](https://github.com/sendgrid/nodemailer-sendgrid-transport)
 
-[old medium truck clipart](https://openclipart.org/detail/16320/old-medium-truck)
+[Thief clipart](https://openclipart.org/detail/165656/burglar)
 
-[Penny Farthing (Large Small Wheels) Bicycle Silhouette](https://openclipart.org/detail/221805/penny-farthing-large-small-wheels-bicycle-silhouette)
+[Foot clipart](https://openclipart.org/detail/66679/foot)
 
 ### Previous episodes' code
 
