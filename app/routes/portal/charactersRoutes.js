@@ -28,12 +28,7 @@ function create(req,res,next) {
 }
 
 function show(req,res,next) {
-  Character.findById(req.params.id, function(err,record) {
-    if (err) return next(err)
-    if (!record) return next(new Error('character not found'))
-
-    res.render('portal/characters/show', {character:record})
-  })
+  res.render('portal/characters/show', req.view)
 }
 
 function edit(req,res) {

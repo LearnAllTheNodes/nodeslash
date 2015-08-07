@@ -9,6 +9,8 @@ var profilesRoutes = App.route('portal/profilesRoutes')
 
 // middleware
 var ensureAuthenticated = App.middleware('ensureAuthenticated')
+var loadCharacter = App.middleware('loadCharacter')
+var characterNotFoundError = App.middleware('characterNotFoundError')
 
 function portalRoutes(app,auth) {
   var canModifyCharacter = auth.can('modify character')
@@ -41,7 +43,11 @@ function portalRoutes(app,auth) {
   portalRouter.route('/characters/new').get(characterRoutes.new)
 
   portalRouter.route('/characters/:id')
-    .get(characterRoutes.show)
+    .get(
+      loadCharacter
+    , characterRoutes.show
+    , characterNotFoundError
+    )
     .put(canModifyCharacter, characterRoutes.update)
 
   portalRouter.route('/characters/:id/edit').get(canModifyCharacter, characterRoutes.edit)
