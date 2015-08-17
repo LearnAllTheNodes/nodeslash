@@ -2,21 +2,25 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/35-protecting-against-csrf-attacks-in-node)
+* [Watch:](http://www.learnallthenodes.com/episodes/41-templates-in-email)
 
-Last time we saw the anatomy of a Cross-site Request Forgery attack, or CSRF for short.  We saw how it worked, and what sort of consequences one could expect from such an attack.  It's challenging to pull one off, but it could be pretty bad.  And it's also really hard to detect, since it's the legitimate user who actually ends up performing the action.
+The past few episodes dealing with email were throwbacks to an earlier time when we were constructing HTML pages out of single-line strings.  I don't know about you, but I was very happy to leave those days behind.  It's time to also leave them behind when it comes to sending our emails.
 
-In this episode we'll see how to protect against this attack vector.
+In this episode we're going to look at how to generate richer email content with less confusion by using email templates.
 
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/201954/stop-drone-attacks-by-worker-201954)
+[Opening clipart](https://openclipart.org/detail/182044/plumier)
 
-[Most useful Node module ever](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[`email-templates`](https://www.npmjs.com/package/email-templates)
 
-[`csurf`](https://github.com/expressjs/csurf)
+[DeLorean clipart](https://openclipart.org/detail/24464/car-delorean)
 
-[Episode code](https://github.com/LearnAllTheNodes/nodeslash/tree/00035)
+[Wagon-Ox clipart](https://openclipart.org/detail/180734/wagon-ox)
+
+[old medium truck clipart](https://openclipart.org/detail/16320/old-medium-truck)
+
+[Penny Farthing (Large Small Wheels) Bicycle Silhouette](https://openclipart.org/detail/221805/penny-farthing-large-small-wheels-bicycle-silhouette)
 
 ### Previous episodes' code
 
