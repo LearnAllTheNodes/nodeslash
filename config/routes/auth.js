@@ -5,13 +5,21 @@ var express = require('express')
 var sessionRoutes = App.route('auth/sessionsRoutes')
 var usersRoutes = App.route('auth/usersRoutes')
 
+// middleware
+var invalidNewUserError = App.middleware('invalidNewUserError')
+var validateNewUser = App.middleware('validateNewUser')
+
 function authRoutes(app,auth) {
   var authRouter = express.Router()
 
   // Authentication
   authRouter.route('/sign_up')
     .get(usersRoutes.new)
-    .post(usersRoutes.create)
+    .post(
+      validateNewUser
+    , usersRoutes.create
+    , invalidNewUserError
+    )
 
   authRouter.route('/sign_in')
     .get(sessionRoutes.new)

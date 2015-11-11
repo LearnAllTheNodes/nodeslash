@@ -13,3 +13,5 @@ function loadCharacter(req, res, next) {
   })
 }
 
+module.exports = loadCharacter
+
