@@ -2,17 +2,24 @@
 
 ## Current Episode
 
-* [Watch:](http://www.learnallthenodes.com/episodes/44-embracing-the-middleware-stack)
+* [Watch: https://learnallthenodes.com/episodes/45-validating-user-input-part-2-the-better-way](https://learnallthenodes.com/episodes/45-validating-user-input-part-2-the-better-way)
 
-Since [Episode #3](http://www.learnallthenodes.com/episodes/3-beginning-routing-in-nodejs) we've been using Express in our application.  The main pain it solved for us was how excruciating routing a request to the correct handler was.  I mean, it was bad.
+A few episodes ago I expressed my disdain for ORMs and ODMs.  I find them to either be a design small in your code or irrelevant.  We're going to dive into the alternatives as we work towards a better app structure.
 
-But Express does more for us than just routing.  In [Episode #5](http://www.learnallthenodes.com/episodes/5-middleware-in-express) we introduced Express's concept of middleware.  Middleware takes repetitive tasks, such as user authentication, and pulls them out of our main request flow.
-
-Could we use middleware to do more than just abstract common operations out of our request?  Could middleware clean up the entire request/response flow?  In this episode, we'll find out that indeed it can.
-
+In this episode though, we're going to show to handle user input without resorting to the crutch of an ODM.
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/192642/children-holding-hands)
+[Opening clipart](https://openclipart.org/detail/33859/furnace-filter)
+
+[Episode code]()
+
+[Grey bird with question marks](https://openclipart.org/detail/194097/grey-bird-with-question-marks)
+
+[Database symbol](https://openclipart.org/detail/181674/database-symbol
+
+[Happy cloud](https://openclipart.org/detail/185355/happy-cloud)
+
+[`validator`](https://www.npmjs.com/package/validator)
 
 ### Previous episodes' code
 
