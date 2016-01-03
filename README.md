@@ -2,24 +2,54 @@
 
 ## Current Episode
 
-* [Watch: https://learnallthenodes.com/episodes/45-validating-user-input-part-2-the-better-way](https://learnallthenodes.com/episodes/45-validating-user-input-part-2-the-better-way)
+* [Watch: https://www.learnallthenodes.com/episodes/48-babel](https://www.learnallthenodes.com/episodes/48-babel)
 
-A few episodes ago I expressed my disdain for ORMs and ODMs.  I find them to either be a design small in your code or irrelevant.  We're going to dive into the alternatives as we work towards a better app structure.
+    const foo = () => console.log('Hello, ES6!')
 
-In this episode though, we're going to show to handle user input without resorting to the crutch of an ODM.
+Such confuse. Very not understand.
+
+This code snippet looks like a programming language, and it has a few traces of JavaScript in it.  But that doesn't look like it will work!
+
+And you're right.  Both your browser and Node.js are going to struggle if you try to run this.
+
+But what if I told you the code above was equivalent to the following?:
+
+    var foo = function () {
+      console.log('Hello, ES6!')
+    }
+
+Well it is, and I think it reads much cleaner, and that's why in this episode, we're going to start learning how to take that first snippet and make it work in Node.js.
+
 ### Notes
 
-[Opening clipart](https://openclipart.org/detail/33859/furnace-filter)
+The Babel logo is from [the Babel project](http://babeljs.io/) itself
 
-[Episode code]()
+[ECMAScript at Wikipedia](https://en.wikipedia.org/wiki/ECMAScript)
 
-[Grey bird with question marks](https://openclipart.org/detail/194097/grey-bird-with-question-marks)
+[`.babelrc` documentation](http://babeljs.io/docs/usage/babelrc/)
 
-[Database symbol](https://openclipart.org/detail/181674/database-symbol
+### The modules we need
 
-[Happy cloud](https://openclipart.org/detail/185355/happy-cloud)
+    npm install --save babel-core babel-preset-s2015 babel-register
+    
+### `.babelrc`
 
-[`validator`](https://www.npmjs.com/package/validator)
+    {
+      "presets": [ "es2015" ]
+    }
+    
+### Entry point file: `babelMain.js`
+
+    require('babel-register')
+
+    require('./babelDemo')
+    
+### File with our ES6: `babelDemo.js`
+
+    // babelDemo.js
+    const foo = () => console.log('Hello, ES6!')
+    
+    foo()
 
 ### Previous episodes' code
 
